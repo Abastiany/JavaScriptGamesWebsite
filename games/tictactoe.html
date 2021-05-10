@@ -1,0 +1,187 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+    <!--Abhi Bastiany
+COP2822.0M1
+version 1 - 10/16/2020
+Greg's Gambits "Tic Tac Toe" Game-->
+<head>
+	<title>Greg's Gambits | Tic Tac Toe</title>
+	<link href="../styles/games.css" rel="stylesheet" type="text/css" />
+<script>
+    function markSquare1()
+    {
+        let mark = document.getElementById("one");
+        if (mark.value == 'x' || mark.value == 'X')
+            {
+                mark.style.backgroundColor = "yellow";
+            }
+        else if (mark.value == 'o' || mark.value == 'O')
+            {
+                mark.style.backgroundColor = "orange";
+            }
+    }
+    function markSquare2()
+    {
+        let mark = document.getElementById("two");
+        if (mark.value == 'x' || mark.value == 'X')
+            {
+                mark.style.backgroundColor = "yellow";
+            }
+        else if (mark.value == 'o' || mark.value == 'O')
+            {
+                mark.style.backgroundColor = "orange";
+            }
+    }
+    function markSquare3()
+    {
+        let mark = document.getElementById("three");
+        if (mark.value == 'x' || mark.value == 'X')
+            {
+                mark.style.backgroundColor = "yellow";
+            }
+        else if (mark.value == 'o' || mark.value == 'O')
+            {
+                mark.style.backgroundColor = "orange";
+            }
+    }
+    function markSquare4()
+    {
+        let mark = document.getElementById("four");
+        if (mark.value == 'x' || mark.value == 'X')
+            {
+                mark.style.backgroundColor = "yellow";
+            }
+        else if (mark.value == 'o' || mark.value == 'O')
+            {
+                mark.style.backgroundColor = "orange";
+            }
+    }
+    function markSquare5()
+    {
+        let mark = document.getElementById("five");
+        if (mark.value == 'x' || mark.value == 'X')
+            {
+                mark.style.backgroundColor = "yellow";
+            }
+        else if (mark.value == 'o' || mark.value == 'O')
+            {
+                mark.style.backgroundColor = "orange";
+            }
+    }
+    function markSquare6()
+    {
+        let mark = document.getElementById("six");
+        if (mark.value == 'x' || mark.value == 'X')
+            {
+                mark.style.backgroundColor = "yellow";
+            }
+        else if (mark.value == 'o' || mark.value == 'O')
+            {
+                mark.style.backgroundColor = "orange";
+            }
+    }
+    function markSquare7()
+    {
+        let mark = document.getElementById("seven");
+        if (mark.value == 'x' || mark.value == 'X')
+            {
+                mark.style.backgroundColor = "yellow";
+            }
+        else if (mark.value == 'o' || mark.value == 'O')
+            {
+                mark.style.backgroundColor = "orange";
+            }
+    }
+    function markSquare8()
+    {
+        let mark = document.getElementById("eight");
+        if (mark.value == 'x' || mark.value == 'X')
+            {
+                mark.style.backgroundColor = "yellow";
+            }
+        else if (mark.value == 'o' || mark.value == 'O')
+            {
+                mark.style.backgroundColor = "orange";
+            }
+    }
+    function markSquare9()
+    {
+        let mark = document.getElementById("nine");
+        if (mark.value == 'x' || mark.value == 'X')
+            {
+                mark.style.backgroundColor = "yellow";
+            }
+        else if (mark.value == 'o' || mark.value == 'O')
+            {
+                mark.style.backgroundColor = "orange";
+            }
+    }
+    function clearColors()
+    {
+        document.getElementById("one").style.backgroundColor = "white";
+        document.getElementById("two").style.backgroundColor = "white";
+        document.getElementById("three").style.backgroundColor = "white";
+        document.getElementById("four").style.backgroundColor = "white";
+        document.getElementById("five").style.backgroundColor = "white";
+        document.getElementById("six").style.backgroundColor = "white";
+        document.getElementById("seven").style.backgroundColor = "white";
+        document.getElementById("eight").style.backgroundColor = "white";
+        document.getElementById("nine").style.backgroundColor = "white";
+    }
+    </script>
+</head>
+<body>
+    <div id="container">
+    <img src="../images/card-1738844_1920.jpg" class="floatleft" id="headerpic" />
+        <p>&nbsp;</p>
+    <h1 id="logo"><em>Tic Tac Toe</em></h1>
+    <div style="clear:both;"></div>
+<nav id="nav_menu">
+    <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../greg.html">About Greg</a></li>
+        <li><a href="../play_games.html">Play a Game</a></li>
+        <li><a href="../signin.html">Sign In</a></li>
+        <li><a href="../contact.html">Contact Us</a></li>
+        <li><a href="../aboutyou.html">Tell Greg About You</a></li>
+    </ul>
+</nav>
+    <div id="content">
+        <h2><br />Tic Tac Toe</h2>
+        <p>This game is for two players. One player is yellow (X), the other is orange (O). The goal is to get three boxes in a row (across, down, or diagonally). When you enter your letter into a box and click OK, the box will change to your color. The game ends either when one player wins or there is a tie.</p>
+        <div>
+           <div><form name = "game">
+               <div> <table width = "50%" border="none"> <br />
+                   <tr><td class = "nobdr"><input type="text" id="one" size = "5" value = ""/>
+                    <a class ="button" href = "JavaScript:markSquare1()"> <img src="../images/ok.gif"></a></td>
+                   <td class = "nobdr"><input type="text" id="four" size = "5" value = ""/>
+                   <a class ="button" href = "JavaScript:markSquare4()"> <img src="../images/ok.gif"></a></td>
+                   <td class = "nobdr"><input type="text" id="seven" size = "5" value = ""/>
+                   <a class ="button" href = "JavaScript:markSquare7()"> <img src="../images/ok.gif"></a></td></tr>
+                   <tr><td class = "nobdr"><input type="text" id="two" size = "5" value = ""/>
+                   <a class ="button" href = "JavaScript:markSquare2()"> <img src="../images/ok.gif"></a></td>
+                   <td class = "nobdr"><input type="text" id="five" size = "5" value = ""/>
+                   <a class ="button" href = "JavaScript:markSquare5()"> <img src="../images/ok.gif"></a></td>
+                   <td class = "nobdr"><input type="text" id="eight" size = "5" value = ""/>
+                   <a class ="button" href = "JavaScript:markSquare8()"> <img src="../images/ok.gif"></a></td></tr>
+                   <tr><td class = "nobdr"><input type="text" id="three" size = "5" value = ""/>
+                   <a class ="button" href = "JavaScript:markSquare3()"> <img src="../images/ok.gif"></a></td>
+                   <td class = "nobdr"><input type="text" id="six" size = "5" value = ""/>
+                   <a class ="button" href = "JavaScript:markSquare6()"> <img src="../images/ok.gif"></a></td>
+                   <td class = "nobdr"><input type="text" id="nine" size = "5" value = ""/>
+                   <a class ="button" href = "JavaScript:markSquare9()"> <img src="../images/ok.gif"></a></td></tr>
+                   </table>
+               </div><div style = "clear:both;"></div>
+               <div> <br /><input type="reset" onclick="clearColors()" value="Restart Game"><br /></div></form>
+        </div>
+    </div>
+    </div>
+        <div id="footer">
+                Copyright &copy; 2013 Greg's Gambits<br />
+                <a href="mailto:gabelogan@gmail.com">gabelogan@gmail.com</a>
+            Image in header by <a href="https://pixabay.com/users/panbrodacz-199382/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1738844">PanBrodacz</a> from <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1738844">Pixabay</a>
+        </div>
+    </div>
+</body>
+</html>    

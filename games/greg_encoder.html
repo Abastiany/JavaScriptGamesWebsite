@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+    <!--Abhi Bastiany
+COP2822.0M1
+version 1 - 10/3/2020
+Greg's Gambits "Gregs Encoder" Game-->
+<head>
+	<title>Greg's Gambits | Secret Message Encoder</title>
+	<link href="../styles/games.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+function encodeIt()
+{
+    document.getElementById("message").innerHTML  = ("<h2>&nbsp;</h2>");
+    //initialize variables
+    var msg = prompt("Enter your message." , " ");
+    var newmsg = " ";
+    var upCaseCode = 155;
+    var newCode = 0;
+    var lowCaseCode = 219;
+    var specialCode = 3;
+		 
+    //the loop encodes each letter in the message string
+    for (var j = 0; j < msg.length; j++)
+    {
+		  //check for upppercase letters and encode them
+        if ((msg.charCodeAt(j)>=65) && (msg.charCodeAt(j)<=90))
+            {
+                newcode = (upCaseCode - msg.charCodeAt(j));
+            }
+        else 
+            //check for lowercase letters and encode them
+				if ((msg.charCodeAt(j)>=97) && (msg.charCodeAt(j)<=122))
+                    {
+                        newcode = (lowCaseCode - msg.charCodeAt(j));
+                    }
+        else
+            //check for numbers and special characters and encode them
+				if (((msg.charCodeAt(j) > 90) && (msg.charCodeAt(j) < 97)) || (msg.charCodeAt(j) < 65))
+                    {
+                         newcode = (msg.charCodeAt(j) + specialCode);
+                    }
+        //add each encoded character to the new message
+			 newmsg = newmsg + " " + String.fromCharCode(newcode);
+    }
+    //display the encoded message on the web page
+    document.getElementById("secret").innerHTML = ("<h2>" + newmsg + "</h2>");
+    //decide if original message should be shown
+    var choice = prompt("Do you want the original message displayed? Yes or No?" , " ");
+    if ((choice.charAt(0) == 'y') || (choice.charAt(0) == 'Y'))
+        {
+            document.getElementById("message").innerHTML = ("<h2>" + msg + "</h2>");
+        }
+}
+</script>
+</head>
+
+<body>
+<div id="container">
+ <img src="../images/card-1738844_1920.jpg" class="floatleft" id="headerpic" />
+    <p>&nbsp;</p>
+ <h1 id="logo"><em>The Secret Message Encoder</em></h1>
+ <div style="clear:both;"></div>
+<nav id="nav_menu">
+    <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../greg.html">About Greg</a></li>
+        <li><a href="../play_games.html">Play a Game</a></li>
+        <li><a href="../signin.html">Sign In</a></li>
+        <li><a href="../contact.html">Contact Us</a></li>
+        <li><a href="../aboutyou.html">Tell Greg About You</a></li>
+    </ul>
+</nav>
+<div id="content">
+	 <h2>Write A Message and Encode It</h2>
+<p><input type="button" id="encode" value="Enter your message" onclick="encodeIt();" /></p>
+  <table cellpadding="2" width = "90%" align = "center" border="1">
+    <tr> <td align="center" id="secret"><p>encoded message</p></td> </tr> 
+	<tr> <td align="center" id="message">&nbsp;</td> </tr>  </table>
+</div>
+<div id="footer">
+                Copyright &copy; 2013 Greg's Gambits<br />
+                <a href="mailto:gabelogan@gmail.com">gabelogan@gmail.com</a>
+            Image in header by <a href="https://pixabay.com/users/panbrodacz-199382/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1738844">PanBrodacz</a> from <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1738844">Pixabay</a>
+        </div>
+</div>
+</body>
+</html>

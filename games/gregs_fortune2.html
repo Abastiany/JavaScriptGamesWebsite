@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!Abhi Bastiany
+COP2822.0M1
+version 1 - 9/17/2020
+Greg's Gambits "Gregs Fortune2" Game>
+<head>
+<title>Greg's Gambits | Madame Vadoma Can Tell Your Fortune</title>
+<link href="../styles/games.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+function startFortune2()
+{
+ 	//initialize variables: edit fortunes if you want
+	var num = 0;
+	var fortune1 = "You will find true love in 9 days.";
+	var fortune2 = "You will never find true love.";
+	var fortune3 = "You will become a millionaire, but it won't last.";
+	var fortune4 = "You will always be surrounded by friends.";
+	var fortune5 = "You will betray the one you love most.";
+	var fortune6 = "It's hard to see your future...  I think you don't have long to live.";
+	var fortune7 = "The life you are seeking will never come to be.";
+	var fortune8 = "You will live to be very old and die peacefully.";
+	var fortune9 = "You will pay me my money after this session.";
+	var fortune10 = 'Madame Vadoma goes white and says "It is too dark to speak of." ';
+    var fortune11 = "You will meet your soul mate very soon.";
+	var fortune12 = "You can get an 'A' in this class if you work hard.";
+	var fortune13 = "A good job is in your future.";
+	var fortune14 = "No one likes a show-off.";
+	var fortune15 = "Don't believe everything you read.";
+	
+	num = (Math.floor(Math.random() * 15)) + 1;
+	switch(num)
+	{
+        case 1:
+            document.getElementById("content").innerHTML = fortune1;
+            break;
+        case 2:
+            document.getElementById("content").innerHTML = fortune2;
+            break;
+        case 3:
+            document.getElementById("content").innerHTML = fortune3;
+            break;
+        case 4:
+            document.getElementById("content").innerHTML = fortune4;
+            break;
+        case 5:
+            document.getElementById("content").innerHTML = fortune5;
+            break;
+        case 6:
+            document.getElementById("content").innerHTML = fortune6;
+            break;
+        case 7:
+            document.getElementById("content").innerHTML = fortune7;
+            break;
+        case 8:
+            document.getElementById("content").innerHTML = fortune8;
+            break;
+        case 9:
+            document.getElementById("content").innerHTML = fortune9;
+            break;
+        case 10:
+            document.getElementById("content").innerHTML = fortune10;
+            break;
+        case 11:
+            document.getElementById("content").innerHTML = fortune11;
+            break;
+        case 12:
+            document.getElementById("content").innerHTML = fortune12;
+            break;
+        case 13:
+            document.getElementById("content").innerHTML = fortune13;
+            break;
+        case 14:
+            document.getElementById("content").innerHTML = fortune14;
+            break;
+        case 15:
+            document.getElementById("content").innerHTML = fortune15;
+            break;
+	}
+}
+</script>
+</head>
+<body>
+<div id="container">
+
+ <img src="../images/card-1738844_1920.jpg" class="floatleft" id="headerpic" />
+    <p>&nbsp;</p>
+ <h1 id="logo"><em>Madame Vadoma Can Tell Your Fortune!</em></h1>
+<div style="clear:both;"></div>
+<nav id="nav_menu">
+    <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../greg.html">About Greg</a></li>
+        <li><a href="../play_games.html">Play a Game</a></li>
+        <li><a href="../signin.html">Sign In</a></li>
+        <li><a href="../contact.html">Contact Us</a></li>
+        <li><a href="../aboutyou.html">Tell Greg About You</a></li>
+    </ul>
+</nav>
+<div id="content">
+    <h2 align="center">Ask Madame Vadoma anything that you are worried about </h2>
+	 <p class="floatright">Madame Vadoma<br /><br />
+	 <img src ="../images/madame.jpg" /></p>
+	 <p>&nbsp;</p>
+	 <p><input type="button" value = "Tell me my fortune" onclick="startFortune2();" /></p>
+	 <p>&nbsp;</p>
+    <div style="clear:both;"></div>
+</div>
+<div id="footer">
+                Copyright &copy; 2013 Greg's Gambits<br />
+                <a href="mailto:gabelogan@gmail.com">gabelogan@gmail.com</a>
+            Image in header by <a href="https://pixabay.com/users/panbrodacz-199382/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1738844">PanBrodacz</a> from <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1738844">Pixabay</a>
+        </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<html lang="en">
+     <!--Abhi Bastiany
+COP2822.0M1
+version 1 - 11/12/2020
+Greg's Gambits "Greg's Boggle" Game-->
+<head>
+<title>Greg's Gambits | Greg's Boggle</title>
+<link href="../styles/games.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="javascript%20files/gregBoggle.js"></script>
+<script>
+    // declare and initialize variables and arrays
+    var play = "";
+    var score = 0; var flag = 0;
+    var num = Math.floor(Math.random()*7) + 1;
+    compWords = new Array(); notAword = new Array();
+    playWords = new Array();
+    
+function showWord()
+{
+	//get a word
+    compWords = words(num);
+    yourWord = compWords[0];
+    document.getElementById("letters").innerHTML = yourWord;     
+}
+    
+function boggle()
+{
+	//get player entries
+    while (play != "Q")
+        {
+            play = prompt("enter a word or enter Q when done");
+            playWords.push(play);
+            if(play != "Q")
+                {
+                    document.getElementById("entries").innerHTML = playWords.toString();
+                }
+        }
+
+	//check winning score and list bad words
+    var complgth = compWords.length;
+    var playlgth = (playWords.length - 1);
+    for (var i = 0; i < playlgth; i++)
+        {
+            flag = 0;
+            for (var k = 0; k < complgth; k++)
+                {
+                    if (playWords[i] == compWords[k])
+                        {
+                            score++;
+                            flag = 1;
+                        }
+                }
+            if (flag == 0)
+                notAword.push(playWords[i]);
+        }
+    document.getElementById("result").innerHTML = ("Your score is " + score + ".<br />The following entries are not valid words: <br />" + notAword.toString());
+}
+</script>
+</head>
+<body onload="showWord();">
+<div id="container">
+	<img src="../images/card-1738844_1920.jpg" class="floatleft" id="headerpic" />
+    <p>&nbsp;</p>
+	<h1 id="logo"><em>Greg's Game of Boggle</em></h1>
+<div style="clear:both;"></div>
+<nav id="nav_menu">
+    <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../greg.html">About Greg</a></li>
+        <li><a href="../play_games.html">Play a Game</a></li>
+        <li><a href="../signin.html">Sign In</a></li>
+        <li><a href="../contact.html">Contact Us</a></li>
+        <li><a href="../aboutyou.html">Tell Greg About You</a></li>
+    </ul>
+</nav>
+	<div id="content">
+	 <p>The object of the game is to create as many words as you can, in a given time limit, from the letters shown below. When you are ready to begin, click the button.</p>
+	 <p><input type = "button" value = "begin the game" onclick = "boggle();"/></p>
+	 <h2><br /><br />Letters you can use:<br /><div id = "letters">&nbsp;</div><br /></h2>
+	 <h2>Your words so far: <br /><div id = "entries">&nbsp;</div><br /></h2>
+	 <h2>Results:<br /><div id = "result">&nbsp;</div></h2>
+	</div>
+	<div id="footer">
+                Copyright &copy; 2013 Greg's Gambits<br />
+                <a href="mailto:gabelogan@gmail.com">gabelogan@gmail.com</a>
+            Image in header by <a href="https://pixabay.com/users/panbrodacz-199382/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1738844">PanBrodacz</a> from <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1738844">Pixabay</a>
+        </div>
+	</div>
+	
+</body>
+</html>

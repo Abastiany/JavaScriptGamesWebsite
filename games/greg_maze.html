@@ -1,0 +1,269 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html lang="en">
+     <!--Abhi Bastiany
+COP2822.0M1
+version 1 - 10/30/2020
+Greg's Gambits "Greg's Maze" Game-->
+<head>
+<title>Greg's Gambits | Greg's Maze</title>
+<link href="../styles/games.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+	var cells;
+    var swapped;
+    var rows;
+    var cols;
+	function setup()
+	{
+        cells = new Array([document.getElementById("cell00"), 
+                          document.getElementById("cell01"), 
+                          document.getElementById("cell02"), 
+                          document.getElementById("cell03")], 
+                          [document.getElementById("cell10"), 
+                          document.getElementById("cell11"), 
+                          document.getElementById("cell12"), 
+                          document.getElementById("cell13")], 
+                          [document.getElementById("cell20"), 
+                          document.getElementById("cell21"), 
+                          document.getElementById("cell22"), 
+                          document.getElementById("cell23")], 
+                          [document.getElementById("cell30"), 
+                          document.getElementById("cell31"), 
+                          document.getElementById("cell32"), 
+                          document.getElementById("cell33")]);
+        placeImages();
+	}
+	function placeImages()
+	{
+        for (var rows = 0; rows < 4; rows++)
+            {
+                for (var cols = 0; cols < 4; cols++)
+                    {
+                        if (rows == 0 && cols == 0)
+                            {
+                                cells[rows][cols].innerHTML = "<img src=\"../images/superhero.jpg\" width=\"100%\" height=\"100%\">";
+                            }
+                        else if (rows == 3 && cols == 3)
+                            {
+                                cells[rows][cols].innerHTML = "<img src=\"../images/princess.jpg\" width=\"100%\" height=\"100%\">";
+                            }
+                        else
+                            {
+                                cells[rows][cols].innerHTML = "<img src=\"../images/bluebox.jpg\" width=\"100%\" height=\"100%\">";
+                            }
+                    }
+            }
+        placePitfalls();
+	}
+    function placePitfalls()
+    {
+        var i = 0;
+        while (i < 3)
+            {
+                createRandoms();
+                let start = checkStart();
+                let princess = checkPrincess();
+                if (!((rows == 0 && cols == 0) || (rows == 3 && cols == 3)))
+                    {
+                        if (start) //can't surround the start or the princess with pitfalls
+                            {
+                                if (princess)
+                                    {
+                                        cells[rows][cols].innerHTML = "<img src=\"../images/bluebox.jpg\" width=\"100%\" height=\"100%\" alt=\"pitfall\">";
+                                        i++;
+                                    }
+                            }
+                        else
+                            {
+                                alert("I'm messing up");
+                            }
+                    }
+            }
+    }
+    function createRandoms()
+    {
+        rows = Math.floor(Math.random() * 4);
+        cols = Math.floor(Math.random() * 4);
+    }
+    function checkStart()
+    {
+        //if there is already a pitfall beside the start, you can't place another one which would block off the start.
+        if (rows == 0 && cols == 1)
+            {
+                if (cells[1][0].innerHTML = "<img src=\"../images/bluebox.jpg\" width=\"100%\" height=\"100%\" alt=\"pitfall\">")
+                    {
+                        return false;
+                    }
+            }
+        else if (rows == 1 && cols == 0)
+            {
+                if (cells[0][1].innerHTML = "<img src=\"../images/bluebox.jpg\" width=\"100%\" height=\"100%\" alt=\"pitfall\">")
+                    {
+                        return false;
+                    }
+            }
+        else
+            {
+                return true;
+            }
+    }
+    function checkPrincess()
+    {
+        //if there is already a pitfall beside the princess, you can't place another one which would block off the princess.
+        if (rows == 2 && cols == 3)
+            {
+                if (cells[3][2].innerHTML = "<img src=\"../images/bluebox.jpg\" width=\"100%\" height=\"100%\" alt=\"pitfall\">")
+                    {
+                        return false;
+                    }
+            }
+        else if (rows == 3 && cols == 2)
+            {
+                if (cells[2][3].innerHTML = "<img src=\"../images/bluebox.jpg\" width=\"100%\" height=\"100%\" alt=\"pitfall\">")
+                    {
+                        return false;
+                    }
+            }
+        else
+            {
+                return true;
+            }
+    }
+	function doClick(row, col)
+	{
+        var top = row - 1;
+        var bottom = row + 1;
+        var left = col - 1;
+        var right = col + 1;
+        swapped = false;
+        if (top != -1 && cells[top][col].innerHTML == "<img src=\"../images/superhero.jpg\" width=\"100%\" height=\"100%\">")
+            {
+                if (cells[row][col].innerHTML == "<img src=\"../images/princess.jpg\" width=\"100%\" height=\"100%\">")
+                    {
+                        winner();
+                    }
+                else if (cells[row][col].innerHTML == "<img src=\"../images/bluebox.jpg\" width=\"100%\" height=\"100%\" alt=\"pitfall\">")
+                    {
+                        alert("Uh-oh! That square looks treacherous, look out for pitfalls!");
+                    }
+                else
+                    {
+                        swap(cells[row][col], cells[top][col]);
+                    }
+            }
+        else if (right != 4 && cells[row][right].innerHTML == "<img src=\"../images/superhero.jpg\" width=\"100%\" height=\"100%\">")
+            {
+                if (cells[row][col].innerHTML == "<img src=\"../images/princess.jpg\" width=\"100%\" height=\"100%\">")
+                    {
+                        winner();
+                    }
+                else if (cells[row][col].innerHTML == "<img src=\"../images/bluebox.jpg\" width=\"100%\" height=\"100%\" alt=\"pitfall\">")
+                    {
+                        alert("Uh-oh! That square looks treacherous, look out for pitfalls!");
+                    }
+                else
+                    {
+                        swap(cells[row][col], cells[row][right]);
+                    }
+            }
+        else if (bottom != 4 && cells[bottom][col].innerHTML == "<img src=\"../images/superhero.jpg\" width=\"100%\" height=\"100%\">")
+            {
+                if (cells[row][col].innerHTML == "<img src=\"../images/princess.jpg\" width=\"100%\" height=\"100%\">")
+                    {
+                        winner();
+                    }
+                else if (cells[row][col].innerHTML == "<img src=\"../images/bluebox.jpg\" width=\"100%\" height=\"100%\" alt=\"pitfall\">")
+                    {
+                        alert("Uh-oh! That square looks treacherous, look out for pitfalls!");
+                    }
+                else
+                    {
+                        swap(cells[row][col], cells[bottom][col]);
+                    }
+            }
+        else if (left != -1 && cells[row][left].innerHTML == "<img src=\"../images/superhero.jpg\" width=\"100%\" height=\"100%\">")
+            {
+                if (cells[row][col].innerHTML == "<img src=\"../images/princess.jpg\" width=\"100%\" height=\"100%\">")
+                    {
+                        winner();
+                    }
+                else if (cells[row][col].innerHTML == "<img src=\"../images/bluebox.jpg\" width=\"100%\" height=\"100%\" alt=\"pitfall\">")
+                    {
+                        alert("Uh-oh! That square looks treacherous, look out for pitfalls!");
+                    }
+                else
+                    {
+                        swap(cells[row][col], cells[row][left]);
+                    }
+            }
+	}
+	function swap(firstCell, secondCell)
+	{
+        swapped = true;
+        secondCell.innerHTML = firstCell.innerHTML;
+        firstCell.innerHTML = "<img src=\"../images/superhero.jpg\" width=\"100%\" height=\"100%\">";
+	}
+	function winner()
+	{
+        alert("Congratulations! You saved the Princess!");
+                if (confirm("Play again?"))
+                    {
+                        setup();
+                    }
+	}
+</script>
+</head>
+<body>
+<div id="container">
+<img src="../images/card-1738844_1920.jpg" class="floatleft" id="headerpic" />
+    <p>&nbsp;</p>
+<h1 id="logo"><em>Greg's Maze</em></h1>
+<div style="clear:both;"></div>
+<nav id="nav_menu">
+    <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../greg.html">About Greg</a></li>
+        <li><a href="../play_games.html">Play a Game</a></li>
+        <li><a href="../signin.html">Sign In</a></li>
+        <li><a href="../contact.html">Contact Us</a></li>
+        <li><a href="../aboutyou.html">Tell Greg About You</a></li>
+    </ul>
+</nav>
+<div id="content">
+<p><input type="button" value = "Start the game" onclick="setup();" /></p>
+<p>The Princess is in danger!  You must fly through outer space to rescue her.  Click on an adjacent square to move your hero.  Be careful, there are invisible pitfalls set up to catch you.  When you reach the Princess, click on her to save her! </p>
+<table width = "60%" align = "center">
+    <tr>
+        <td height = "80"> <span onclick = "doClick(0,0)" id = "cell00"> <img src="../images/superhero.jpg" width="100%" height="100%" /> </span> </td>
+        <td height = "80"> <span onclick = "doClick(0,1)" id = "cell01"> <img src="../images/princess.jpg" width="100%" height="100%"  /> </span> </td>
+        <td height = "80"> <span onclick = "doClick(0,2)" id = "cell02"> <img src="../images/bluebox.jpg" width="100%" height="100%" /> </span> </td>
+        <td height = "80"> <span onclick = "doClick(0,3)" id = "cell03"> <img src="../images/bluebox.jpg" width="100%" height="100%" /> </span> </td>
+    </tr>
+    <tr>
+        <td height = "80"> <span onclick = "doClick(1,0)" id = "cell10"> <img src="../images/bluebox.jpg" width="100%" height="100%" /> </span> </td>
+        <td height = "80"> <span onclick = "doClick(1,1)" id = "cell11"> <img src="../images/bluebox.jpg" width="100%" height="100%" /> </span> </td>
+        <td height = "80"> <span onclick = "doClick(1,2)" id = "cell12"> <img src="../images/bluebox.jpg" width="100%" height="100%" /> </span> </td>
+        <td height = "80"> <span onclick = "doClick(1,3)" id = "cell13"> <img src="../images/bluebox.jpg" width="100%" height="100%" /> </span> </td>
+    </tr>
+    <tr>
+        <td height = "80"> <span onclick = "doClick(2,0)" id = "cell20"> <img src="../images/bluebox.jpg" width="100%" height="100%" /> </span> </td>
+        <td height = "80"> <span onclick = "doClick(2,1)" id = "cell21"> <img src="../images/bluebox.jpg" width="100%" height="100%" /> </span> </td>
+        <td height = "80"> <span onclick = "doClick(2,2)" id = "cell22"> <img src="../images/bluebox.jpg" width="100%" height="100%" /> </span> </td>
+        <td height = "80"> <span onclick = "doClick(2,3)" id = "cell23"> <img src="../images/bluebox.jpg" width="100%" height="100%" /> </span> </td>
+    </tr>
+    
+    <tr>
+        <td height = "80"> <span onclick = "doClick(3,0)" id = "cell30"> <img src="../images/bluebox.jpg" width="100%" height="100%" /> </span> </td>
+        <td height = "80"> <span onclick = "doClick(3,1)" id = "cell31"> <img src="../images/bluebox.jpg" width="100%" height="100%" /> </span> </td>
+        <td height = "80"> <span onclick = "doClick(3,2)" id = "cell32"> <img src="../images/bluebox.jpg" width="100%" height="100%" /> </span> </td>
+        <td height = "80"> <span onclick = "doClick(3,3)" id = "cell33"> <img src="../images/bluebox.jpg" width="100%" height="100%" /> </span> </td>
+    </tr>
+</table>
+</div>
+<div id="footer">
+                Copyright &copy; 2013 Greg's Gambits<br />
+                <a href="mailto:gabelogan@gmail.com">gabelogan@gmail.com</a>
+            Image in header by <a href="https://pixabay.com/users/panbrodacz-199382/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1738844">PanBrodacz</a> from <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1738844">Pixabay</a>
+        </div>
+</div>
+</body></html>

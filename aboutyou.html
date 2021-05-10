@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!Abhi Bastiany
+COP2822.0M1
+version 1 - 9/6/2020
+Greg's Gambits "About You" Page>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Greg's Gambits | About You</title>
+<link href="styles/greg.css" rel="stylesheet" type="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script>
+    function getName()
+    {
+        var name = prompt("Please enter your name"," ");
+        document.getElementById('myname').innerHTML = name;
+    }
+    function getUsername()
+    {
+        var username = prompt("What do you want for your username?"," ");
+        document.getElementById('myusername').innerHTML=username;
+    }
+    function getAvatar()
+    {
+        window.open('avatars.html');
+    }
+    function pickAvatar()
+    {
+        var avatar = prompt("Enter the avatar you want","Bunny");
+        document.getElementById('myavatar').innerHTML = avatar;
+    }
+    function getHome()
+    {
+        window.open('homes.html');
+    }
+    function pickHome()
+    {
+        var home = prompt("Enter your desired dwelling for your avatar"," ");
+        document.getElementById('myhome').innerHTML = home;
+    }
+</script>
+</head>
+<body>
+<div id="container">
+
+ <img src="images/card-1738844_1920.jpg" class="floatleft" id="headerpic" />
+ <h1 id="logo"><em>Greg's Gambits </em></h1>
+  
+<h2 align="center"><em>TELL GREG ABOUT YOU</em></h2>
+
+<p>&nbsp;</p>
+<nav id="nav_menu">
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="greg.html">About Greg</a></li>
+        <li><a href="play_games.html">Play a Game</a></li>
+        <li><a href="signin.html">Sign In</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+        <li><a href="aboutyou.html" class="current">Tell Greg About You</a></li>
+    </ul>
+</nav>
+<div id="content">
+    <p><button type="button" onclick="getName()">Enter your name</button>
+        Hi there, <span id = "myname" >Greg</span></p>
+    <p><button type="button" onclick="getUsername()">Enter a username </button>
+    Username: <span id="myusername">KingGreg</span></p>
+    <p><button type="button" onclick="getAvatar()">See the avatar choices</button></p>
+    <p><button type="button" onclick="pickAvatar()">Select your avatar</button><br />
+    The avatar you selected is: <span id = "myavatar"> kitty</span> </p>
+    <p><button type="button" onclick="getHome()">See the dwelling choices for your avatar</button></p>
+    <p><button type="button" onclick="pickHome()">Select your home</button><br />
+    The home you selected is: <span id = "myhome"> forest</span></p>
+    <p>&nbsp;</p>
+</div>
+<div id="footer">
+                Copyright &copy; 2013 Greg's Gambits<br />
+                <a href="mailto:gabelogan@gmail.com">gabelogan@gmail.com</a>
+            Image in header by <a href="https://pixabay.com/users/panbrodacz-199382/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1738844">PanBrodacz</a> from <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1738844">Pixabay</a>
+        </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+    <!--Abhi Bastiany
+COP2822.0M1
+version 1 - 9/17/2020
+Greg's Gambits "Gregs_Tales" Game-->
+<head>
+	<title>Greg's Gambits | Greg's Tales</title>
+	<link href="../styles/games.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript">
+	function startGame()
+	{
+		numYears = prompt("Enter a number greater than 0: ");
+        gender = prompt("Is the story about a boy or a girl? ");
+        var letter = gender.charAt(0);
+        gender = (letter == 'b' || letter == 'B')? "boy" : "girl";
+        pronoun = (gender == "boy")? "he" : "she";
+        
+        name = prompt("Enter the hero's name: ");
+        city = prompt("Enter the hero's home town: ");
+        monster = prompt("Enter a type of monster: ");
+        food = prompt("Enter a food you like: ");
+        drink = prompt("Enter a drink you like: ");
+		
+		document.getElementById("content").innerHTML =("Once upon a time, about " + numYears + " years ago, there was a "+ gender + " named " + name + ". " + name + " lived in a small cabin in the woods just outside " + city + " limits.</p> <p>" + name + " enjoyed walking in the woods every day until... One day " + pronoun + " came upon a " + monster + " sitting on a log eating a " + food + ".</p> <p>The " + monster + " jumped up, spilling his " + drink + ". " + name + " ran home as fast as " + pronoun + " could but the " + monster + " followed and ...</p><h3>What happened? You decide! </h3> <p>Ending 1: The " + monster + " and " + name + " became best friends and lived in " + name + "'s house happily ever after.</p> <p>Ending 2: The " + monster + " overpowered " + name + " and gobbled down all the " + food + " and " + drink + " in " + name + "'s refrigerator.</p> <p>Ending 3: " + name + " screamed mean things at the " + monster + ", causing the " + monster + " to turn and run back to the woods, never to be seen again.</p>");
+		}
+	</script>
+	</head>
+	<body>
+		<div id="container">
+		<img src="../images/card-1738844_1920.jpg" class="floatleft" id="headerpic" />
+            <p>&nbsp;</p>
+		<h1 id="logo"><em>Greg's Tales</em></h1>
+            <div style="clear:both;"></div>
+<nav id="nav_menu">
+    <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../greg.html">About Greg</a></li>
+        <li><a href="../play_games.html">Play a Game</a></li>
+        <li><a href="../signin.html">Sign In</a></li>
+        <li><a href="../contact.html">Contact Us</a></li>
+        <li><a href="../aboutyou.html">Tell Greg About You</a></li>
+    </ul>
+</nav>
+		<div id="content">
+		<h3>For this game, you will create a story by entering words as prompted. The story will change each time you run this game, as you enter different words.</h3>
+            <p>&nbsp;</p>
+			<input type="button" value = "click to begin" onclick="startGame()" />
+		</div>
+		<div id="footer">
+                Copyright &copy; 2013 Greg's Gambits<br />
+                <a href="mailto:gabelogan@gmail.com">gabelogan@gmail.com</a>
+            Image in header by <a href="https://pixabay.com/users/panbrodacz-199382/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1738844">PanBrodacz</a> from <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1738844">Pixabay</a>
+        </div>
+		</div>
+	</body>
+</html>
